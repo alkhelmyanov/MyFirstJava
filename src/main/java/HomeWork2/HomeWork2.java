@@ -13,25 +13,16 @@ public class HomeWork2 {
         converSeasonSwitch(2);
 
     }
-    public static void converSeasonSwitch(int seasonNumber){
-        String season; // создаем пустую переменную
 
-        switch (seasonNumber){ //  в аргументы пишем что именно будет сравниваться в дальнейшем
-            case 1: // варианты сравнения с чем сравнивать seasonNumber. Если seasonNumber будет равен "1"
-                season = "Winter"; // Если seasonNumber == 1, то переменной season присваивается значение "Winter"
-                break; // после каждого кейса обязательно должен быть break. Если не поставить break то выполение кейса не завершится, и java будет присваивать переменной season значения остальных кейсов которые идут дальше.
-            case 2:
-                season = "Spring";
-                break;
-            case 3:
-                season = "Summer";
-                break;
-            case 4:
-                season = "Fall";
-                break;
-            default: // Если ни один из кейсов не выполнился то выполнится кейс по умолчанию default. После default ставить break не надо.
-                season = "Unknown season";
-        }
+    public static void converSeasonSwitch(int seasonNumber) {
+        String season = switch (seasonNumber) { // сразу переменной season присваивается возврат switch
+            case 1, 5, 6 -> "Winter"; // можно проверять несколько аргументов seasonNumber
+            case 2 -> "Spring";
+            case 3 -> "Summer";
+            case 4 -> "Fall";
+            default -> "Unknown season";
+        };
+
         System.out.println(season);
 
     }
